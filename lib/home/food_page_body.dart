@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/units/colors.dart';
+import 'package:food_delivery_app/utils/colors.dart';
+import 'package:food_delivery_app/utils/dimensions.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/icon_and_text_widget.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
@@ -33,10 +34,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
+  
     return Column(
       children: [
         Container(
-          height: 320,
+          height:  Dimensions.pageView,
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
@@ -91,23 +93,23 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
           Container(
-            height: 220,
+            height: Dimensions.pageViewContainer,
             decoration: BoxDecoration(
               color: AppColors.mainColor,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular( Dimensions.radius20),
               image: DecorationImage(
                   image: AssetImage('assets/image/food0.png'),
                   fit: BoxFit.cover),
             ),
-            margin: EdgeInsets.only(left: 5, right: 5),
+            margin: EdgeInsets.only(left: Dimensions.width5, right: Dimensions.width5),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 120,
+              height: Dimensions.pageTextContainer,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
                 boxShadow: [
                   BoxShadow(
                     color: Color(0xFFe8e8e8),
@@ -116,15 +118,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   ),
                 ],
               ),
-              margin: EdgeInsets.only(left: 30, right: 30, bottom: 30),
+              margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height30),
               child: Container(
-                padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+                padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BigText(text: "Chinese Side"),
                     SizedBox(
-                      height: 10,
+                      height: Dimensions.height10,
                     ),
                     Row(
                       children: [
@@ -133,27 +135,27 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             5,
                             (index) => Icon(
                               Icons.star_rounded,
-                              size: 15,
+                              size: Dimensions.icon15,
                               color: AppColors.mainColor,
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 10,
+                          width: Dimensions.height10,
                         ),
                         SmallText(text: '4.5'),
                         SizedBox(
-                          width: 10,
+                          width: Dimensions.height10,
                         ),
                         SmallText(text: "1287"),
                         SizedBox(
-                          width: 5,
+                          width:Dimensions.width5,
                         ),
                         SmallText(text: "comments")
                       ],
                     ),
                     SizedBox(
-                      height: 20,
+                      height: Dimensions.height20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
