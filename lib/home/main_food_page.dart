@@ -18,7 +18,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
         children: [
           Container(
             child: Container(
-              margin: EdgeInsets.only(top: Dimensions.height45 ,bottom: Dimensions.height15),
+              margin: EdgeInsets.only(
+                  top: Dimensions.height45, bottom: Dimensions.height15),
               padding: EdgeInsets.symmetric(horizontal: Dimensions.width20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,13 +27,17 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   Column(
                     children: [
                       Container(
-                        child: BigText(text: "United State",color: AppColors.mainColor,)
-                      ),
+                          child: BigText(
+                        text: "United State",
+                        color: AppColors.mainColor,
+                      )),
                       Row(
                         children: [
                           Container(
-                            child: SmallText(text: "New York" ,color: Colors.black54,)
-                          ),
+                              child: SmallText(
+                            text: "New York",
+                            color: Colors.black54,
+                          )),
                           Icon(Icons.arrow_drop_down_rounded)
                         ],
                       )
@@ -42,11 +47,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     child: Container(
                       width: Dimensions.height45,
                       height: Dimensions.width45,
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.radius15),color: AppColors.mainColor),
-                          
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius15),
+                          color: AppColors.mainColor),
                       child: Icon(
-                        
                         Icons.search_rounded,
                         color: Colors.white,
                         size: Dimensions.icon24,
@@ -57,7 +62,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
-          FoodPageBody()
+          Expanded(
+            child: SingleChildScrollView(
+              child: FoodPageBody(),
+            ),
+          ),
         ],
       ),
     );

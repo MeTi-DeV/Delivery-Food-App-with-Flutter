@@ -34,11 +34,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-  
+    // print(MediaQuery.of(context).size.height);
+    // print(MediaQuery.of(context).size.width);
     return Column(
       children: [
         Container(
-          height:  Dimensions.pageView,
+          height: Dimensions.pageView,
           child: PageView.builder(
               controller: pageController,
               itemCount: 5,
@@ -57,7 +58,107 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               borderRadius: BorderRadius.circular(5.0),
             ),
           ),
-        )
+        ),
+        SizedBox(
+          height: Dimensions.height30,
+        ),
+        Container(
+          margin: EdgeInsets.only(
+              left: Dimensions.width15,
+              right: Dimensions.width15,
+              top: Dimensions.height30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: "Popular"),
+              Container(
+                margin: EdgeInsets.symmetric(
+                    horizontal: Dimensions.width10, vertical: 3),
+                width: Dimensions.height5,
+                height: Dimensions.width5,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: Colors.black26),
+              ),
+              Container(
+                child: SmallText(text: "Food Pairing"),
+              )
+            ],
+          ),
+        ),
+        Container(
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                margin: EdgeInsets.only(
+                    left: Dimensions.width20,
+                    right: Dimensions.width20,
+                    bottom: Dimensions.width10),
+                child: Row(
+                  children: [
+                    Container(
+                      width:Dimensions.listViewImg,
+                      height:Dimensions.listViewImg,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius15),
+                        color: Colors.white,
+                        image: DecorationImage(
+                            image: AssetImage("assets/image/food0.png"),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: Dimensions.width10,
+                            horizontal: Dimensions.height15),
+                        height: Dimensions.listViewContTextSize,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(Dimensions.radius15),
+                                bottomRight:
+                                    Radius.circular(Dimensions.radius15))),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            BigText(
+                                text: "Nutritious fruit meal in China"),
+                            SizedBox(
+                              height: Dimensions.height10,
+                            ),
+                            SmallText(text: "With chinese characteristics"),
+                            SizedBox(height: Dimensions.height10,),
+                          Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconAndTextWidget(
+                            icon: Icons.circle,
+                            text: "Normal",
+                            iconColor: AppColors.iconColor2),
+                        IconAndTextWidget(
+                            icon: Icons.location_on_rounded,
+                            text: "1.7 km",
+                            iconColor: AppColors.mainColor),
+                        IconAndTextWidget(
+                            icon: Icons.access_time_rounded,
+                            text: "32m",
+                            iconColor: AppColors.iconColor1),
+                      ],
+                    ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
       ],
     );
   }
@@ -96,12 +197,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             height: Dimensions.pageViewContainer,
             decoration: BoxDecoration(
               color: AppColors.mainColor,
-              borderRadius: BorderRadius.circular( Dimensions.radius20),
+              borderRadius: BorderRadius.circular(Dimensions.radius20),
               image: DecorationImage(
                   image: AssetImage('assets/image/food0.png'),
                   fit: BoxFit.cover),
             ),
-            margin: EdgeInsets.only(left: Dimensions.width5, right: Dimensions.width5),
+            margin: EdgeInsets.only(
+                left: Dimensions.width5, right: Dimensions.width5),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -118,9 +220,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   ),
                 ],
               ),
-              margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height30),
+              margin: EdgeInsets.only(
+                  left: Dimensions.width30,
+                  right: Dimensions.width30,
+                  bottom: Dimensions.height30),
               child: Container(
-                padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height15),
+                padding: EdgeInsets.only(
+                    left: Dimensions.width15,
+                    right: Dimensions.width15,
+                    top: Dimensions.height15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -149,7 +257,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         ),
                         SmallText(text: "1287"),
                         SizedBox(
-                          width:Dimensions.width5,
+                          width: Dimensions.width5,
                         ),
                         SmallText(text: "comments")
                       ],
