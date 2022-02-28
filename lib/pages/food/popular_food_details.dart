@@ -3,7 +3,7 @@ import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/widgets/app_column.dart';
 import 'package:food_delivery_app/widgets/app_icon.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
-import 'package:food_delivery_app/widgets/extendable_text_widget.dart';
+import 'package:food_delivery_app/widgets/expanded_text_widget.dart';
 
 import '../../utils/dimensions.dart';
 
@@ -34,7 +34,7 @@ class PopularFoodDetails extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppIcon(icon: Icons.arrow_back_ios),
+                  AppIcon(icon: Icons.arrow_back_ios_new),
                   AppIcon(icon: Icons.shopping_cart_rounded),
                 ],
               )),
