@@ -164,7 +164,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   }
 
   Widget _buildItemPage(int index) {
-    //comment 1 : logic for create slider of top of screen
     Matrix4 matrix = new Matrix4.identity();
     if (index == _currPageValue.floor()) {
       var currScale = 1 - (_currPageValue - index) * (1 - _scaleFactor);
