@@ -5,11 +5,14 @@ class SmallText extends StatelessWidget {
   Color? color;
   double size;
   double heigh;
+  TextOverflow overFlow;
   SmallText(
       {required this.text,
       this.color = const Color(0xFFccc7c5),
       this.size = 12,
       this.heigh=1.2,
+      this.overFlow=TextOverflow.visible
+
     });
 
   @override
@@ -20,7 +23,8 @@ class SmallText extends StatelessWidget {
         color: color,
         fontSize: size,
         fontFamily: 'Roboto',
-        height: heigh
+        height: heigh,
+        overflow: overFlow
      
       ),
     );
