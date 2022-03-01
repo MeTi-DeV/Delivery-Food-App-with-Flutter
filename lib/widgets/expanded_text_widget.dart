@@ -65,7 +65,7 @@ physics:  BouncingScrollPhysics(),
                               text: "Show More",
                               color: AppColors.mainColor,
                             ),
-                            Icon(Icons.arrow_drop_down,
+                            Icon(Icons.keyboard_arrow_down_sharp,
                                     color: AppColors.mainColor)
                                
                           ],
@@ -75,7 +75,7 @@ physics:  BouncingScrollPhysics(),
                               text: "Show Less",
                               color: AppColors.mainColor,
                             ),
-                           Icon(Icons.arrow_drop_up,
+                           Icon(Icons.keyboard_arrow_up_sharp,
                                     color: AppColors.mainColor),
                         ],),
                       )
