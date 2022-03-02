@@ -20,16 +20,29 @@ class AppColumn extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Wrap(
+                        Stack(children: [
+                         
+                         Wrap(
                           children: List.generate(
                             5,
+                            (index) => Icon(
+                              Icons.star_rounded,
+                              size: Dimensions.icon15,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ), Wrap(
+                          children: List.generate(
+                            int.parse(stars),
                             (index) => Icon(
                               Icons.star_rounded,
                               size: Dimensions.icon15,
                               color: AppColors.mainColor,
                             ),
                           ),
-                        ),
+                        ), 
+                        ],),
+                        
                         SizedBox(
                           width: Dimensions.height10,
                         ),
