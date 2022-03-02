@@ -6,7 +6,8 @@ import 'package:food_delivery_app/widgets/icon_and_text_widget.dart';
 import 'package:food_delivery_app/widgets/small_text.dart';
 class AppColumn extends StatelessWidget {
   final String text;
-  const AppColumn({Key? key,required this.text}) : super(key: key);
+  final String stars;
+  const AppColumn({Key? key,required this.text ,required this.stars}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class AppColumn extends StatelessWidget {
                         SizedBox(
                           width: Dimensions.height10,
                         ),
-                        SmallText(text: '4.5'),
+                        SmallText(text: stars),
                         SizedBox(
                           width: Dimensions.height10,
                         ),
