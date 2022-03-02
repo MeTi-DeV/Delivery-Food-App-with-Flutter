@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/controllers/popular_product_controller.dart';
+import 'package:food_delivery_app/routes/routeHelper.dart';
 import 'package:food_delivery_app/utils/colors.dart';
 import 'package:food_delivery_app/widgets/app_column.dart';
 import 'package:food_delivery_app/widgets/app_icon.dart';
 import 'package:food_delivery_app/widgets/big_text.dart';
 import 'package:food_delivery_app/widgets/expanded_text_widget.dart';
+import 'package:get/get.dart';
 
+import '../../utils/app_constants.dart';
 import '../../utils/dimensions.dart';
 
 class PopularFoodDetails extends StatelessWidget {
+ final int pageId;
+
+ PopularFoodDetails({Key? key,required this.pageId}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.height);
-    print(MediaQuery.of(context).size.width);
+    var product=Get.find<PopularProductController>().popularProductList[pageId];
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -24,7 +31,9 @@ class PopularFoodDetails extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage("assets/image/food0.png"))),
+                      image: NetworkImage(AppConstants.BASE_URL +
+                        AppConstants.UPLOAD_URL+
+                        product.img!),)),
             ),
           ),
           Positioned(
@@ -34,8 +43,11 @@ class PopularFoodDetails extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppIcon(icon: Icons.arrow_back_ios_new),
+                 GestureDetector(onTap: (){
+Get.toNamed(RouteHelpers.getInitial());
+                  },child: AppIcon(icon: Icons.arrow_back_ios_new), ),
                   AppIcon(icon: Icons.shopping_cart_rounded),
+                
                 ],
               )),
           Positioned(
@@ -57,12 +69,13 @@ class PopularFoodDetails extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     AppColumn(
-                      text: "Chinese Side",
+                      stars: product.stars.toString(),
+                      text: product.name.toString(),
                     ),
                     SizedBox(height: Dimensions.height30,),
                     BigText(text: "Introduce"),
                   SizedBox(height: Dimensions.radius20,),
-ExtenadableTextWidget(text:"Chinese cuisines seem to have mastered this art; hence you find most of their meals are accompanied by different side dishes. The side dishes could be a variety of raw or simple veggies to potato or soups or just anything that compliments or balance the main meal. In this article, I have gathered different Chinese side dishes from traditional to keto, paleo vegan gluten-free, among others. So stick around as I show you different easy recipes you can make for family gatherings or just dinners.")
+ExtenadableTextWidget(text:product.description.toString())
 
                   ],
                 )),
@@ -117,7 +130,7 @@ ExtenadableTextWidget(text:"Chinese cuisines seem to have mastered this art; hen
               decoration: BoxDecoration(
                   color:AppColors.mainColor,
                   borderRadius: BorderRadius.circular(Dimensions.radius15)),
-              child:BigText(text: "\$10 | Add to cart",color: Colors.white,)
+              child:BigText(text: "\$ ${product.price} | Add to cart",color: Colors.white,)
               
             ),
           ],
